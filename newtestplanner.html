@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Medical Study Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e0f7fa;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background-color: #00796b;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        header:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        p {
+            font-size: 18px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-in-out;
+        }
+
+        h2, h3 {
+            color: #00796b;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select, input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .study-plan {
+            margin-top: 30px;
+            border-top: 2px solid #00796b;
+            padding-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            transition: opacity 0.5s ease;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #00796b;
+            color: white;
+        }
+
+        .resources-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .resources-section li {
+            margin-bottom: 10px;
+        }
+
+        .resources-section a {
+            color: #00796b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .resources-section a:hover {
+            color: #004d40;
+        }
+
+        .tips-section {
+            margin-top: 30px;
+            background-color: #f1f8e9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #00796b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        footer a {
+            color: #00796b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #004d40;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Icons */
+        .icon {
+            font-size: 40px;
+            color: #00796b;
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Personalized Study Plan for Effective Learning in Medical Sciences</h1>
+    <p>Personalized medical study plan for every aspiring student</p>
+</header>
+
+<main>
+    <div>
+        <h2>Personalize Your Study Plan</h2>
+        <form id="studyForm">
+            <div class="form-group">
+                <label for="fieldOfStudy">Select Field of Study</label>
+                <select id="fieldOfStudy" required>
+                    <option value="">Choose a Field</option>
+                    <option value="General Medicine">General Medicine</option>
+                    <option value="Surgery">Surgery</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Psychiatry">Psychiatry</option>
+                    <option value="Pharmacology">Pharmacology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="studyMethod">Preferred Study Method</label>
+                <select id="studyMethod" required>
+                    <option value="">Choose a Study Method</option>
+                    <option value="Active Recall">Active Recall</option>
+                    <option value="Spaced Repetition">Spaced Repetition</option>
+                    <option value="Pomodoro Technique">Pomodoro Technique</option>
+                    <option value="Case-Based Learning">Case-Based Learning</option>
+                    <option value="Group Study">Group Study</option>
+                    <option value="Self-Study">Self-Study</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="prioritySubjects">Priority Subjects (comma-separated)</label>
+                <input type="text" id="prioritySubjects" placeholder="e.g. Anatomy, Physiology, Biochemistry" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studyGoals">Study Goals (brief description)</label>
+                <textarea id="studyGoals" placeholder="What do you aim to achieve with this study plan?" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="studyTime">Available Study Time (per day in hours)</label>
+                <input type="number" id="studyTime" placeholder="e.g. 4" required>
+            </div>
+
+            <button type="submit">Generate Study Plan</button>
+        </form>
+    </div>
+
+    <div id="studyPlanSection" class="study-plan"></div>
+
+    <div id="studyTipsSection" class="tips-section">
+        <h3>Study Tips for Medical Students</h3>
+        <ul>
+            <li><span class="icon">🧠</span> <strong>Active Recall</strong>: Actively recall the information you’ve studied by testing yourself. It strengthens long-term memory.</li>
+            <li><span class="icon">📚</span> <strong>Spaced Repetition</strong>: Use spaced repetition tools like Anki to review information at increasing intervals, helping retention.</li>
+            <li><span class="icon">😴</span> <strong>Sleep and Nutrition</strong>: Prioritize quality sleep and proper nutrition. They are essential for memory consolidation and cognitive performance.</li>
+            <li><span class="icon">👩‍⚕️</span> <strong>Clinical Exposure</strong>: Participate in clinical placements or watch case-based videos. Clinical experience deepens theoretical knowledge.</li>
+            <li><span class="icon">🧘‍♂️</span> <strong>Mindfulness & Relaxation</strong>: Regular mindfulness practices can reduce anxiety and improve concentration.</li>
+        </ul>
+    </div>
+
+</main>
+
+<footer>
+    <p>Project powered by <a href="https://techlorance.com" target="_blank"><strong>Techlorance</strong></a> | Founder: Talha Khan</p>
+</footer>
+
+<script>
+    document.getElementById('studyForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fieldOfStudy = document.getElementById('fieldOfStudy').value;
+        const studyMethod = document.getElementById('studyMethod').value;
+        const prioritySubjects = document.getElementById('prioritySubjects').value.split(',').map(sub => sub.trim());
+        const studyGoals = document.getElementById('studyGoals').value;
+        const studyTime = document.getElementById('studyTime').value;
+
+        let studyPlanHTML = ` 
+            <h3>Your Personalized Study Plan</h3>
+            <p><strong>Field of Study:</strong> ${fieldOfStudy}</p>
+            <p><strong>Study Method:</strong> ${studyMethod}</p>
+            <p><strong>Priority Subjects:</strong> ${prioritySubjects.join(', ')}</p>
+            <p><strong>Study Goals:</strong> ${studyGoals}</p>
+            <p><strong>Available Study Time:</strong> ${studyTime} hours/day</p>
+        `;
+
+        let studyHoursPerSubject = (studyTime / prioritySubjects.length).toFixed(1);
+        let studyTableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8:00 AM - 10:00 AM</td>
+                        <td>Study ${prioritySubjects[0]} (${studyHoursPerSubject} hours)</td>
+                    </tr>
+                    <tr>
+                        <td>10:30 AM - 12:30 PM</td>
+                        <td>Study ${prioritySubjects[1]} (${studyHoursPerSubject} hours)</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM - 3:00 PM</td>
+                        <td>Study ${prioritySubjects[2]} (${studyHoursPerSubject} hours)</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+
+        document.getElementById('studyPlanSection').innerHTML = studyPlanHTML + studyTableHTML;
+    });
+</script>
+
+</body>
+</html>
